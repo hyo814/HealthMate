@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "김철수",
+    "email": "chulsoo@example.com",
+    "password": "Password123!"
+  },
+  {
+    "id": 2,
+    "name": "이영희",
+    "email": "younghi@example.com",
+    "password": "Younghi456@"
+  },
+  {
+    "id": 3,
+    "name": "박지민",
+    "email": "jimin@example.com",
+    "password": "Jimin789#"
+  }
+]

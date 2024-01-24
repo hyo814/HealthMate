@@ -1,0 +1,25 @@
+/* 모바일 네비게이션 바 스타일 */
+.mobile-nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+}
+
+.mobile-nav ul li {
+  display: inline;
+}
+
+.mobile-nav ul li a {
+  color: white;
+  padding: 15px 20px;
+  text-decoration: none;
+}
+
+/* 작은 화면 크기에서 스타일 조정 */
+@media (max-width: 600px) {
+  .mobile-nav ul {
+    flex-direction: column;
+  }
+}
