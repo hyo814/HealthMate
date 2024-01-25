@@ -1,0 +1,15 @@
+.login_layer{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../style/image/Login.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_detail_layer {
+    background-color :rgba(255,255,255,0.8);
+    padding:40px;
+    border-radius: 15px;
+}
