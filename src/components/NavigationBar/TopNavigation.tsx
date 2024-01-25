@@ -4,25 +4,20 @@ import {Button} from "@mui/material";
 import walkPoint from "../../../mockups/prototypes/walkPoint.json";
 
 const TopNavigationBar = () => {
-	// 상태 변수를 정의하여 localStorage에서 가져온 값을 저장
-	const [userId, setUserId] = useState('');
+	const [userId, setUserId] = useState<string>('');
 	
-	// 컴포넌트가 마운트될 때 localStorage에서 값을 가져옴
 	useEffect(() => {
-		// localStorage에서 userId 가져오기
 		const storedUserId = localStorage.getItem('userId');
 		
-		// 가져온 userId가 있다면 상태에 설정
 		if (storedUserId) {
 			setUserId(storedUserId);
 		}
-	}, []); // 빈 배열을 전달하여 컴포넌트가 마운트될 때 한 번만 실행
+	}, []);
 	
-	// 로그아웃 처리 함수
 	const handleLogout = () => {
-		localStorage.removeItem('userId'); // 토큰 제거
-		localStorage.removeItem('token'); // 토큰 제거
-		window.location.href = '/'; // 로그인 페이지로 이동
+		localStorage.removeItem('userId');
+		localStorage.removeItem('token');
+		window.location.href = '/';
 	};
 	
 	const walkPointInfo = walkPoint.map((item, idx) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -11,8 +11,20 @@ import Fitness from "../Fitness/Fitness";
 import Walk from "../Walk/Walk";
 
 const BottomNavigationBar = () => {
-	const [tabIndex, setTabIndex] = useState(2);
-	const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+	const [tabIndex, setTabIndex] = useState<number>(2);
+	const [isMobile, setIsMobile] = useState<boolean>(false);
+	
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 768);
+		};
+		
+		handleResize();
+		
+		window.addEventListener('resize', handleResize);
+		
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 	
 	const renderTabContent = () => {
 		switch (tabIndex) {

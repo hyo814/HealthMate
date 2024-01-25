@@ -48,3 +48,10 @@
 .main_image_list::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera용 */
 }
+
+.main_detail_layer {
+    margin:10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the form */
+    padding: 20px;
+    border-radius: 57px;
+}

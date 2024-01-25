@@ -2,18 +2,12 @@ import React from 'react';
 
 import { Box, Typography, Button } from '@mui/material';
 import Footer from "../../components/Footer/Footer";
+import styles from "./@error.module.css";
 
 const NotFoundPage: React.FC = () => {
   return (
     <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',  // 전체 뷰포트 높이
-        textAlign: 'center'
-      }}
+   className={styles.error_layer}
     >
       <Typography variant="h1" component="h1" gutterBottom>
         404 Not Found

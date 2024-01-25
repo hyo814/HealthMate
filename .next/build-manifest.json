@@ -22,6 +22,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/Home/Home.js"
     ],
+    "/SignUp/SignUp": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/SignUp/SignUp.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

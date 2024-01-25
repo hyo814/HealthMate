@@ -1,8 +1,35 @@
 import React, {useState} from "react";
-
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import walkPointData from "../../../mockups/prototypes/walkPoint.json";
 import styles from "./@walk.module.css";
 import Button from "@mui/material/Button";
+
+const ProgressCircle = ({value, label}) => {
+	return (
+		<Box position="relative" display="inline-flex">
+			<CircularProgress variant="determinate" value={value}/>
+			<Box
+				top={0}
+				left={0}
+				bottom={0}
+				right={0}
+				position="absolute"
+				display="flex"
+				alignItems="center"
+				justifyContent="center"
+			>
+				<Typography variant="caption" component="div" color="textPrimary">
+					{`${Math.round(value)}%`}
+				</Typography>
+			</Box>
+			<Typography variant="caption" component="div" color="textSecondary">
+				{label}
+			</Typography>
+		</Box>
+	);
+};
 
 const Walk = () => {
 	const userId = localStorage.getItem("userId");
@@ -15,12 +42,8 @@ const Walk = () => {
 	const [totalPoints, setTotalPoints] = useState(walkPoint?.currentPoints);
 	
 	const convertPoints = () => {
-		const previousPoints = totalPoints;
-		const newPoints = pointsEarned;
-		const updatedTotalPoints = previousPoints + newPoints;
+		const updatedTotalPoints = totalPoints + pointsEarned;
 		
-		// 실제 서버 요청 및 응답 처리를 시뮬레이션합니다.
-		// 여기에서는 setTimeout을 사용하여 비동기적으로 처리합니다.
 		simulateServerRequest(updatedTotalPoints);
 	};
 	
@@ -28,20 +51,19 @@ const Walk = () => {
 		const today = new Date().toDateString();
 		const lastConversionDate = localStorage.setItem("lastConversionDate", today);
 		setTimeout(() => {
-			// 서버 요청을 시뮬레이션하고 성공 또는 실패 여부에 따라 처리합니다.
-			const success = true; // 가정: 요청 성공
+			const success = true; // 백엔드 서버가 없기 때문에 요청 성공 가정화
 			
 			if (success) {
 				if ((lastConversionDate !== null) && (localStorage.getItem("lastConversionDate") === today)) {
 					alert("오늘은 이미 포인트를 전환했습니다. 하루에 한 번만 가능합니다.");
-					return; // 이미 전환한 경우 더 이상 동작하지 않도록 종료
+					return;
 				}
-				setTotalPoints(updatedTotalPoints); // 서버 응답이 성공한 경우, 클라이언트 상태를 업데이트합니다.
+				setTotalPoints(updatedTotalPoints);
 				alert(`포인트를 성공적으로 전환하였습니다. 현재 포인트: ${updatedTotalPoints}개`);
 			} else {
 				alert('서버 요청에 실패했습니다. 다시 시도해주세요.');
 			}
-		}, 1000); // 1초 후에 응답을 시뮬레이션합니다.
+		}, 1000);
 	};
 	
 	const shareData = () => {
@@ -68,15 +90,24 @@ const Walk = () => {
 	return (
 		<div className={styles.walk_layer}>
 			<div className={styles.walk_detail_layer}>
-				<h1>걷기 운동 카드</h1>
-				<p>목표 걸음 수: <span id="targetSteps">{walkPoint?.targetSteps}</span></p>
-				<p>현재 걸음 수: <span id="dailySteps">{walkPoint?.dailySteps}</span></p>
-				<p>1주 간 걸음 평균 수: <span id="averageSteps">{walkPoint?.averageWeeklySteps}</span></p>
-				<p>진행률: <span id="progress">{percentage.toFixed(2)}%</span></p>
-				<p>현재 포인트: {totalPoints} POINT </p>
-				<Button onClick={convertPoints}>포인트 전환하기 ({pointsEarned}걸음 당 {pointsPerSteps} 포인트)</Button>
-				<Button onClick={shareData}>공유하기</Button>
-				<p>상위 {walkPoint?.rankingPercent}% 걷기 : {userId}</p>
+				<div className={styles.walk_detail_layer}>
+					<h1>걷기 운동 카드</h1>
+					<Button onClick={convertPoints}>포인트 전환하기 ({pointsEarned}걸음 당 {pointsPerSteps} 포인트)</Button>
+					<Button onClick={shareData}>공유하기</Button>
+				</div>
+				<div className={styles.walk_detail_layer}>
+					<p>목표 걸음 수: <span id="targetSteps">{walkPoint?.targetSteps}</span></p>
+					<p>현재 걸음 수: <span id="dailySteps">{walkPoint?.dailySteps}</span></p>
+					<p>1주 간 걸음 평균 수: <span id="averageSteps">{walkPoint?.averageWeeklySteps}</span></p>
+				</div>
+				<div className={styles.walk_detail_layer}>
+					<p>현재 포인트: {totalPoints} POINT </p>
+					<p>진행률: <span id="progress">{percentage.toFixed(2)}%</span></p>
+					<p>상위 {walkPoint?.rankingPercent}% 걷기 : {userId}</p>
+					<br/>
+					<ProgressCircle value={percentage} label="일일 목표 달성률"/>
+					&nbsp;<ProgressCircle value={walkPoint?.rankingPercent} label="상위 퍼센트"/>
+				</div>
 			</div>
 		</div>
 	);

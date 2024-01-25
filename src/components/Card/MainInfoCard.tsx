@@ -8,7 +8,7 @@ import styles from "./@card.module.css";
 
 const MainInfoCard = ({cardList}) => {
 	return (
-		<div>
+		<div className={styles.main_detail_layer}>
 			{cardList.length === 0 ?
 				<CircularProgress/>
 				:

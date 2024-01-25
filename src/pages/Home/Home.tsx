@@ -12,12 +12,12 @@ const Home: React.FC = () => {
 	
 	useEffect(() => {
 		const storedToken = localStorage.getItem('token');
-		setToken(storedToken); // 토큰 상태 업데이트
+		setToken(storedToken);
 		
 		if (!storedToken) {
 			router.push('/');
 		}
-	}, [token]); // 의존성 배열에 token 추가
+	}, [token]);
 	
 	return (
 		<>

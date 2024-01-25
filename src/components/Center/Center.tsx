@@ -8,14 +8,14 @@ import styles from "./@Center.module.css";
 const Center = () => {
 	return (
 		<div className={styles.center}>
-			<div style={{textAlign: "left"}}>
-				<div>다이어트, 이렇게 시작하세요!</div>
-				<div>추천 영상 이미지를 클릭 해볼까요?</div>
+			<div className={styles.center_text}>
+				<div><b>다이어트, 이렇게 시작하세요!</b></div>
+				<div><b>추천 영상 이미지를 클릭 해볼까요?</b></div>
 				<MainInfoCard cardList={dietList}/>
 			</div>
-			<div style={{textAlign: "right"}}>
-				<div>운동 시작은 여기서부터!</div>
-				<div>오늘부터 함께해요!</div>
+			<div className={styles.center_text}>
+				<div><b>운동 시작은 여기서부터!</b></div>
+				<div><b>오늘부터 함께해요!</b></div>
 				<MainInfoCard cardList={exerciseList}/>
 			</div>
 		</div>

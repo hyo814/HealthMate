@@ -1,6 +1,5 @@
 import jwt from "../../mockups/prototypes/jwt.json";
 
-// 로그인 함수
 export async function login(email: string, password: string): Promise<string | undefined> {
 	// 1.가짜 jwt 송수신
 	if (email === "ggamjige8888@naver.com" && password === "Gywls!1040") {
@@ -8,7 +7,7 @@ export async function login(email: string, password: string): Promise<string | u
 		const name = jwt?.[0]?.name;
 		if (loginSuccess && name)
 			localStorage.setItem('token', loginSuccess);
-			localStorage.setItem('userId', name);
+			localStorage.setItem('userId', name as string);
 		window.location.href = '/Home/Home';
 	}
 	// 2. 백엔드 송수신
@@ -35,7 +34,6 @@ export async function login(email: string, password: string): Promise<string | u
 	}
 }
 
-// 회원가입 함수
 export async function signUp(name: string, email: string, password: string): Promise<void> {
 	// 1. 회원정보 성공 기본 텍스트
 	const signUpSuccess = jwt?.[1]?.message;

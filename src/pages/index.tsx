@@ -5,9 +5,10 @@ import {login} from '../utils/Auth';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import {Typography, Link} from '@mui/material';
-import LoginSrc from "../style/image/Login.jpg";
+
 import Footer from "../components/Footer/Footer";
 import {validateEmail, validatePassword} from "../utils/validation";
+import styles from "./@index.module.css";
 
 type FormData = {
 	email: string;
@@ -16,15 +17,12 @@ type FormData = {
 
 const Index: React.FC = () => {
 	const {register, handleSubmit, formState: {errors, isValid}} = useForm<FormData>({
-		mode: 'onChange', // 실시간 유효성 검사
+		mode: 'onChange',
 	});
 	
-	// 오류 메시지를 관리하는 상태
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	
-	// 컴포넌트가 마운트될 때 실행되는 부분
 	useEffect(() => {
-		// 로컬 스토리지에서 토큰 가져오기
 		const token = localStorage.getItem('token');
 		const userId = localStorage.getItem('userId');
 		// 토큰이 존재한다면 홈 페이지로 이동
@@ -42,20 +40,8 @@ const Index: React.FC = () => {
 	
 	return (
 		<>
-			<div style={{
-				height: "100vh", // Full height
-				width: "100vw", // Full width
-				backgroundImage: `url(${LoginSrc?.src})`, // Background image
-				backgroundSize: "cover", // Cover the entire viewport
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center"
-			}}>
-				<div style={{
-					backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent white background for the form
-					padding: "40px",
-					borderRadius: "15px"
-				}}>
+			<div className={styles.login_layer}>
+				<div className={styles.login_detail_layer}>
 					<Typography variant="h4">LOGIN</Typography>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<TextField

@@ -19,7 +19,7 @@ type FormData = {
 
 const SignUp = () => {
 	const {register, handleSubmit, formState: {errors, isValid}} = useForm<FormData>({
-		mode: 'onChange', // 실시간 유효성 검사
+		mode: 'onChange',
 	});
 	
 	const onSubmit = async (data: FormData) => {

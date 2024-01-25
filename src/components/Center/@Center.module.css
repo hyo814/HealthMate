@@ -5,5 +5,12 @@
     display: flex;
     color: rgb(256,256,256);
     justify-content: space-between;
-    padding:20px;
+    padding:5px;
+}
+
+.center_text {
+    margin: 0 20px;
+    color :rgb(256,256,256);
+    font-size : 20px;
+    padding:5px;
 }

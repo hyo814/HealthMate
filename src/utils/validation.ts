@@ -1,4 +1,3 @@
-// validation.tsx
 export const validateEmail = (email: string): string | true => {
 	const regex = /^\S+@\S+\.\S+$/;
 	if (!regex.test(email)) {
