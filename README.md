@@ -17,54 +17,52 @@
    - 나. yarn dev로 프로그램 동작
    - 다. http://localhost:3000/로 이동
 - [ ]  3)&nbsp;프로젝트 구조 설명
-
-- src/
-  ├── components/ - 웹사이트의 각 부분을 구성하는 컴포넌트들이 있는 폴더
-  │   ├── Card/ - 카드 컴포넌트
-  │   │   ├── card.module.css - 카드 컴포넌트의 스타일 파일
-  │   │   ├── CardInfo.tsx - 카드 정보를 표시하는 컴포넌트 파일
-  │   │   └── MainInfoCard.tsx - 메인 정보 카드 컴포넌트 파일
-  │   ├── Center/ - 센터 컴포넌트
-  │   │   ├── Center.module.css - 센터 컴포넌트의 스타일 파일
-  │   │   └── Center.tsx - 센터 컴포넌트 파일
-  │   ├── Fitness/ - 피트니스 컴포넌트
-  │   │   └── Fitness.tsx - 피트니스 컴포넌트 파일
-  │   ├── Footer/ - 푸터 컴포넌트
-  │   │   └── Footer.tsx - 푸터 컴포넌트 파일
-  │   ├── NavigationBar/ - 네비게이션 바 컴포넌트
-  │   │   ├── BottomNavigation.tsx - 하단 네비게이션 컴포넌트 파일
-  │   │   └── TopNavigation.tsx - 상단 네비게이션 컴포넌트 파일
-  │   ├── Nutrient/ - 영양소 관련 컴포넌트
-  │   │   └── Nutrient.tsx - 영양소 컴포넌트 파일
-  │   ├── Supplement/ - 보충제 관련 컴포넌트
-  │   │   └── Supplement.tsx - 보충제 컴포넌트 파일
-  │   └── Walk/ - 걷기 관련 컴포넌트
-  │       ├── walk.module.css - 걷기 컴포넌트의 스타일 파일
-  │       └── Walk.tsx - 걷기 컴포넌트 파일
-  │
-  ├── pages/ - 웹사이트의 각 페이지를 구성하는 컴포넌트들이 있는 폴더
-  │   ├── Error/ - 에러 페이지 컴포넌트
-  │   │   ├── 404.tsx - 404 에러 페이지 파일
-  │   │   ├── 500.tsx - 500 에러 페이지 파일
-  │   │   └── error.module.css - 에러 페이지의 스타일 파일
-  │   ├── Home/ - 홈페이지 컴포넌트
-  │   │   └── Home.tsx - 홈페이지 컴포넌트 파일
-  │   ├── index.tsx - 로그인 페이지 파일 (* 첫 페이지 체크 확인)
-  │   │   └──  index.module.css - 로그인 페이지의 스타일 파일
-  │   ├── SignUp/ - 회원가입 컴포넌트
-  │   │   ├──  SignUp.tsx - 회원가입 페이지 파일
-  │   │   └──  sign-up.module.css - 회원가입 페이지 스타일 파일
-  │   └── style/ - 페이지 스타일 관련 폴더
-  │       └── image/ - 이미지 파일
-  │           ├── CheckListItem.jpg - 체크리스트 아이템 이미지
-  │           ├── Login.jpg - 로그인 이미지
-  │           ├── RecomendTrends.png - 추천 트렌드 이미지
-  │           ├── Register.jpg - 회원가입 이미지
-  │           └── Walk.jpg - 걷기 이미지
-  │
-  └── utils/ - 유틸리티 함수나 공통 코드가 있는 폴더
-  ├── Auth.ts - 인증 관련 유틸리티 파일
-  └── validation.ts - 유효성 검사 관련 유틸리티 파일
+  - components/ - 웹사이트의 각 부분을 구성하는 컴포넌트들이 있는 폴더
+  - Card/ - 카드 컴포넌트
+  - card.module.css - 카드 컴포넌트의 스타일 파일
+  - CardInfo.tsx - 카드 정보를 표시하는 컴포넌트 파일
+  - MainInfoCard.tsx - 메인 정보 카드 컴포넌트 파일
+  - Center/ - 센터 컴포넌트
+  - Center.module.css - 센터 컴포넌트의 스타일 파일
+  - Center.tsx - 센터 컴포넌트 파일
+  - Fitness/ - 피트니스 컴포넌트
+  - Fitness.tsx - 피트니스 컴포넌트 파일
+  - Footer/ - 푸터 컴포넌트
+  - Footer.tsx - 푸터 컴포넌트 파일
+  - NavigationBar/ - 네비게이션 바 컴포넌트
+  - BottomNavigation.tsx - 하단 네비게이션 컴포넌트 파일
+  - TopNavigation.tsx - 상단 네비게이션 컴포넌트 파일
+  - Nutrient/ - 영양소 관련 컴포넌트
+  - Nutrient.tsx - 영양소 컴포넌트 파일
+  - Supplement/ - 보충제 관련 컴포넌트
+  - Supplement.tsx - 보충제 컴포넌트 파일
+  - Walk/ - 걷기 관련 컴포넌트
+  - walk.module.css - 걷기 컴포넌트의 스타일 파일
+  - Walk.tsx - 걷기 컴포넌트 파일
+  
+  - pages/ - 웹사이트의 각 페이지를 구성하는 컴포넌트들이 있는 폴더
+  - Error/ - 에러 페이지 컴포넌트
+  - 404.tsx - 404 에러 페이지 파일
+  - 500.tsx - 500 에러 페이지 파일
+  - error.module.css - 에러 페이지의 스타일 파일
+  - Home/ - 홈페이지 컴포넌트
+  - Home.tsx - 홈페이지 컴포넌트 파일
+  - index.tsx - 로그인 페이지 파일 (* 첫 페이지 체크 확인)
+  - index.module.css - 로그인 페이지의 스타일 파일
+  - SignUp/ - 회원가입 컴포넌트
+  - SignUp.tsx - 회원가입 페이지 파일
+  - sign-up.module.css - 회원가입 페이지 스타일 파일
+  - style/ - 페이지 스타일 관련 폴더
+  - image/ - 이미지 파일
+  - CheckListItem.jpg - 체크리스트 아이템 이미지
+  - Login.jpg - 로그인 이미지
+  - RecomendTrends.png - 추천 트렌드 이미지
+  - Register.jpg - 회원가입 이미지
+  - Walk.jpg - 걷기 이미지
+  
+  - utils/ - 유틸리티 함수나 공통 코드가 있는 폴더
+  - Auth.ts - 인증 관련 유틸리티 파일
+  - validation.ts - 유효성 검사 관련 유틸리티 파일
 
 - [ ]  4)&nbsp;각 기능 설명
 - 가. components 폴더:
