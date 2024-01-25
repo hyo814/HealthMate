@@ -1,0 +1,17 @@
+.walk_layer {
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
+    background-size: cover; /* Cover the entire viewport */
+    display: flex;
+    background-image: url("../../style/image/Walk.jpg");
+    justify-content: center;
+    align-items: center;
+}
+
+.walk_detail_layer {
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for the form */
+    padding: 40px;
+    height: 400px;
+    border-radius: 57px;
+}

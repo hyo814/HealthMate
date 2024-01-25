@@ -8,8 +8,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import {Typography, Link} from '@mui/material';
 
-import SignUpSrc from "../../style/image/Register.jpg";
 import Footer from "../../components/Footer/Footer";
+import styles from "./@sign-up.module.css";
 
 type FormData = {
 	name: string;
@@ -28,20 +28,9 @@ const SignUp = () => {
 	
 	return (
 		<>
-			<div style={{
-				height: "100vh", // Full height
-				width: "100vw", // Full width
-				backgroundImage: `url(${SignUpSrc?.src})`, // Background image
-				backgroundSize: "cover", // Cover the entire viewport
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center"
-			}}>
-				<div style={{
-					backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent white background for the form
-					padding: "40px",
-					borderRadius: "15px"
-				}}>
+			<div
+				className={styles.sign_layout}>
+				<div className={styles.sign_detail_layout}>
 					<Typography variant="h4">Create an account</Typography>
 					<Typography variant="subtitle1">
 						Already have an account? <Link href="/">Log in</Link>

@@ -8,12 +8,12 @@ const Footer = () => {
 				© {new Date().getFullYear()} HEALTHYMATE
 			</Typography>
 			<Typography variant="body2" color="text.secondary" align="center">
-				<Link color="inherit" href="https://www.yourwebsite.com/">
+				<Link color="inherit" href="www.healthymate.com/">
 					www.healthymate.com
 				</Link>
 			</Typography>
 			<Typography variant="body2" color="text.secondary" align="center">
-				Contact Us: ggamjige8888@naver.com
+				Contact Us: https://github.com/hyo814
 			</Typography>
 		</Box>
 	);

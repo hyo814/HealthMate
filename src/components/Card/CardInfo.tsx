@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from "next/link";
 
 import ImageList from '@mui/material/ImageList';
@@ -6,8 +6,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
-
-import CheckListItem from "../../style/image/CheckListItem.jpg";
+import styles from "./@card.module.css";
 import favorite from "../../../mockups/prototypes/favoriteTable.json";
 
 const CardInfo = ({cardList, text}) => {
@@ -71,43 +70,20 @@ const CardInfo = ({cardList, text}) => {
 	};
 	
 	return (
-		<div style={{
-			height: "100vh", // Full height
-			width: "100vw", // Full width
-			backgroundImage: `url(${CheckListItem?.src})`, // Background image
-			backgroundSize: "cover", // Cover the entire viewport
-			display: "flex",
-			justifyContent: "center",
-			alignItems: "center"
-		}}>
+		<div className={styles.card_list}>
 			{cardList?.length === 0 ?
 				// 스켈레톤 처리 해보기
 				<div>DATA IS LOADING NOW!</div>
 				:
-				<ImageList sx={{
-					width: "70%", // 전체 너비의 80%로 설정
-					margin: "0 auto", // 중앙 정렬을 위해 추가
-					height: "500px",
-					overflowY: 'scroll', // 스크롤 가능하도록 설정
-					'&::-webkit-scrollbar': {
-						display: 'none' // Chrome, Safari, Opera용
-					},
-					'& *': {
-						scrollbarWidth: 'none', // Firefox용
-						'-ms-overflow-style': 'none' // IE, Edge용
-					}
-				}}>
+				<ImageList className={styles.image_list}>
 					<ImageListItem key="Subheader" cols={2}>
 						<ListSubheader component="div">{text}</ListSubheader>
 					</ImageListItem>
 					{cardList?.map((item) => (
 						<Link href={item.link} passHref target="_blank" rel="noopener noreferrer">
-							<ImageListItem key={item.id} sx={{
-								marginBottom: "10px", // 원하는 여백 크기를 설정
-								width: "auto",
-								height: "200px"
-								// 나머지 스타일 속성들은 유지
-							}}>
+							<ImageListItem key={item.id}
+							               className={styles.image_item}
+							>
 								<img
 									src={item.image}
 									alt={item.title}
@@ -118,7 +94,7 @@ const CardInfo = ({cardList, text}) => {
 									title={item.title}
 									actionIcon={
 										<IconButton
-											sx={{color: 'rgba(255, 255, 255, 0.54)'}}
+											className={styles.image_icon}
 											aria-label={`info about ${item.title}`}
 											onClick={(event) => handleLike(item, event)} // 찜하기 버튼 클릭 이벤트
 										>

@@ -4,6 +4,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import CircularProgress from "@mui/material/CircularProgress";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
+import styles from "./@card.module.css";
 
 const MainInfoCard = ({cardList}) => {
 	return (
@@ -12,15 +13,8 @@ const MainInfoCard = ({cardList}) => {
 				<CircularProgress/>
 				:
 				<>
-					<ImageList sx={{
-						padding: "5%",
-						width: "auto",
-						height: "200px",
-						overflowY: 'scroll', // 스크롤 가능하도록 설정
-						'&::-webkit-scrollbar': {
-							display: 'none' // Chrome, Safari, Opera용
-						},
-					}}>
+					<ImageList
+						className={styles.main_image_list}>
 						{cardList?.map((item, idx) => (
 							<ImageListItem key={idx}>
 								<img

@@ -1,0 +1,9 @@
+.center{
+    background-image: url("../../style/image/RecomendTrends.png");
+    background-size: cover;
+    align-items: center;
+    display: flex;
+    color: rgb(256,256,256);
+    justify-content: space-between;
+    padding:20px;
+}

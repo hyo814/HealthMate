@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 
 import walkPointData from "../../../mockups/prototypes/walkPoint.json";
-import WalkSrc from "../../style/image/Walk.jpg";
+import styles from "./@walk.module.css";
+import Button from "@mui/material/Button";
 
 const Walk = () => {
 	const userId = localStorage.getItem("userId");
@@ -65,30 +66,16 @@ const Walk = () => {
 	};
 	
 	return (
-		<div style={{
-			height: "100vh", // Full height
-			width: "100vw", // Full width
-			backgroundImage: `url(${WalkSrc?.src})`, // Background image
-			backgroundSize: "cover", // Cover the entire viewport
-			display: "flex",
-			justifyContent: "center",
-			alignItems: "center"
-		}}>
-			<div style={{
-				margin: "5px",
-				backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent white background for the form
-				padding: "40px",
-				height: "400px",
-				borderRadius: "57px"
-			}}>
+		<div className={styles.walk_layer}>
+			<div className={styles.walk_detail_layer}>
 				<h1>걷기 운동 카드</h1>
 				<p>목표 걸음 수: <span id="targetSteps">{walkPoint?.targetSteps}</span></p>
 				<p>현재 걸음 수: <span id="dailySteps">{walkPoint?.dailySteps}</span></p>
 				<p>1주 간 걸음 평균 수: <span id="averageSteps">{walkPoint?.averageWeeklySteps}</span></p>
 				<p>진행률: <span id="progress">{percentage.toFixed(2)}%</span></p>
 				<p>현재 포인트: {totalPoints} POINT </p>
-				<button onClick={convertPoints}>포인트 전환하기 ({pointsEarned}걸음 당 {pointsPerSteps} 포인트)</button>
-				<button onClick={shareData}>공유하기</button>
+				<Button onClick={convertPoints}>포인트 전환하기 ({pointsEarned}걸음 당 {pointsPerSteps} 포인트)</Button>
+				<Button onClick={shareData}>공유하기</Button>
 				<p>상위 {walkPoint?.rankingPercent}% 걷기 : {userId}</p>
 			</div>
 		</div>

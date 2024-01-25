@@ -1,0 +1,50 @@
+/*기본 카드*/
+.card_list {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../style/image/CheckListItem.jpg");
+}
+
+.image_list {
+    width: 70%;
+    margin: 0 auto;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.image_list::-webkit-scrollbar {
+    display: none;
+}
+
+.image_list * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.image_item {
+    margin-bottom: 10px;
+    width: auto;
+    height: 200px
+}
+
+.image_icon {
+    color: rgba(255, 255, 255, 0.54)
+}
+
+/* 메인 카드*/
+.main_image_list {
+    padding: 5%;
+    width: auto;
+    height: 200px;
+    overflow-y: scroll; /* 스크롤 가능하도록 설정 */
+    -ms-overflow-style: none; /* IE, Edge용 */
+    scrollbar-width: none; /* Firefox용 */
+}
+
+.main_image_list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera용 */
+}
